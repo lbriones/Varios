@@ -1,0 +1,32 @@
+install drupal:
+
+tasksel
+
+crear dominio con virtual host
+/etc/apache2/sites-available 
+sudo ln -s ../sites-available/x.conf
+sudo /etc/init.d/apache2
+sudo vi inde/etc/hosts
+
+sudo apt-get install drush
+
+drush dl drupal
+mover descarga a raiz del sitio
+
+traslate spanish
+wget http://ftp.drupal.org/files/translations/7.x/drupal/drupal-7.23.es.po
+
+cp /vms.grupoz.cl/sites/default/default.settings.php settings.php
+mkdir files
+sudo chown www-data:www-data *
+
+drush dl admin_menu devel
+drush en module_filter
+drush dl examples
+
+XMLRPC example
+
+
+url limpia
+sudo a2enmod rewrite
+sudo service apache2 restart
