@@ -1,0 +1,27 @@
+#!/bin/sh
+# ROR install dreamhost shared hosting, 
+# ruby 1.9.3-p547
+# rails 3.2.14
+cd
+mkdir build
+cd build
+wget http://pyyaml.org/download/libyaml/yaml-0.1.4.tar.gz
+tar xzvf yaml-0.1.4.tar.gz
+cd yaml-0.1.4
+./configure --prefix=/home/lbriones/ruby/local
+make
+make install
+cd
+wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p547.tar.gz
+tar xzvf ruby-1.9.3-p547.tar.gz
+cd ruby-1.9.3-p547
+./configure --prefix=home/lbriones/ruby/local --enable-shared --disable-install-doc --with-opt-dir=home/lbriones/ruby/local/lib
+make
+make install
+
+
+export GEM_HOME="$HOME/.gems"
+export GEM_PATH="$GEM_HOME"
+export PATH=~/ruby/bin:$PATH
+
+gem install rails --version=3.2.14
